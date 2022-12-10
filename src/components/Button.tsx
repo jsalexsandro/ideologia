@@ -1,17 +1,15 @@
 import ButtonMaterial from "@mui/material/Button"
 import { Stack } from "phosphor-react";
+import { CSSProperties } from "react";
 
 interface ButtonProps {
   children: any
-  className?: string
-  type?: "button" | "reset" | "submit"
-  color?:"inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" ;
+  style?:CSSProperties
+  type?:"submit" | "button" | "reset" 
 }
 
 export function Button(props: ButtonProps){
   return (
-      <ButtonMaterial style={{ backgroundColor:"blue" }}>
-        { props.children }
-      </ButtonMaterial>
+      <ButtonMaterial {...props} />
   )
 }

@@ -22,8 +22,8 @@ export default function Login(){
           <InputEmail placeholder="Email"/>
           <InputPassword placeholder="Senha" />
           <CheckBox id="checkbox-login"  label="Mantenha me Conectado" />
-          <Button color="primary" className="w-[320px] h-14 mt-4" type="submit">
-            <p>
+          <Button style={{ backgroundColor:"rgb(59, 130, 246)", height:"48px" }} type="submit">
+            <p className="text-neutral-100">
               Login
             </p>
           </Button>
