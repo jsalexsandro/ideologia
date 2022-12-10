@@ -23,9 +23,9 @@ export function InputEmail(props: InputEmailProps){
 
   return (
     <FormControl className='w-[320px]' variant="outlined">
-    <InputLabel htmlFor="outlined-adornment-password">{ props.placeholder }</InputLabel>
+    <InputLabel htmlFor="outlined-adornment-email">{ props.placeholder }</InputLabel>
     <OutlinedInput
-      id="outlined-adornment-password"
+      id="outlined-adornment-email"
       type="email"
       value={values.email}
       onChange={handleChange('email')}
