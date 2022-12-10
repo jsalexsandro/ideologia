@@ -5,7 +5,6 @@ interface CheckboxProps {
   id:string
 }
 
-
 export function CheckBox(props:CheckboxProps){
   return  (
     <div className="w-[320px] flex items-center justify-start py-1">

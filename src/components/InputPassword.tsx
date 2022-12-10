@@ -45,7 +45,7 @@ export function InputPassword(props: InputPasswordProps) {
 
 
   return (
-    <FormControl className='w-[320px]' variant="outlined">
+    <FormControl className='sm:w-[450px] w-[320px]' variant="outlined">
       <InputLabel htmlFor="outlined-adornment-password">{ props.placeholder }</InputLabel>
       <OutlinedInput
         id="outlined-adornment-password"
