@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 interface InputPasswordProps {
   placeholder:string
+  id?:string
 }
 
 interface State {
@@ -46,9 +47,9 @@ export function InputPassword(props: InputPasswordProps) {
 
   return (
     <FormControl className='sm:w-[450px] w-[320px]' variant="outlined">
-      <InputLabel htmlFor="outlined-adornment-password">{ props.placeholder }</InputLabel>
+      <InputLabel htmlFor={ props.id }>{ props.placeholder }</InputLabel>
       <OutlinedInput
-        id="outlined-adornment-password"
+        id={ props.id }
         type={values.showPassword ? 'text' : 'password'}
         value={values.password}
         onChange={handleChange('password')}

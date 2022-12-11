@@ -6,7 +6,19 @@ import { InputEmail } from "../../components/InputEmail";
 import { InputPassword } from "../../components/InputPassword";
 
 
+
 export default function Login(){
+
+  async function handleSignIn(e: any){
+    e.preventDefault();
+    const email = e.target.email.value as string
+    const password = e.target.password.value as string
+    const checkbox = e.target.checkbox.checked as boolean
+
+    console.log({ email, password, checkbox })
+   
+  }
+
   return (
     <main className="bg-neutral-200 w-full h-[100vh] flex items-center ">
       <div className="max-sm:hidden">
@@ -22,10 +34,10 @@ export default function Login(){
               Login
             </h1>
           </div>
-          <form action="#" className="flex gap-1 flex-col">
-            <InputEmail placeholder="Email"/>
-            <InputPassword placeholder="Senha" />
-            <CheckBox id="checkbox-login"  label="Mantenha me Conectado" />
+          <form onSubmit={ handleSignIn } action="#" className="flex gap-1 flex-col">
+            <InputEmail id="email" placeholder="Email"/>
+            <InputPassword id="password" placeholder="Senha" />
+            <CheckBox id="checkbox"  label="Mantenha me Conectado" />
             <Button style={{ backgroundColor:"rgb(59, 130, 246)", height:"48px" }} type="submit">
               <p className="text-neutral-100">
                 Login

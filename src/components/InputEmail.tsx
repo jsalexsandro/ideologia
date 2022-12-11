@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 interface InputEmailProps {
   placeholder: string
+  id?: string
 }
 
 interface State {
@@ -23,9 +24,9 @@ export function InputEmail(props: InputEmailProps){
 
   return (
     <FormControl className='sm:w-[450px] w-[320px]' variant="outlined">
-    <InputLabel htmlFor="outlined-adornment-email">{ props.placeholder }</InputLabel>
+    <InputLabel htmlFor={ props.id } >{ props.placeholder }</InputLabel>
     <OutlinedInput
-      id="outlined-adornment-email"
+      id={ props.id } 
       type="email"
       value={values.email}
       onChange={handleChange('email')}
