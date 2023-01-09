@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient, User } from "@prisma/client"
 import jwt from "jsonwebtoken"
 import { comparePassword } from "../../../services/password"
 
@@ -19,7 +19,7 @@ export default async function loginApi(req: NextApiRequest, res: NextApiResponse
     res.status(422).send({ error:"A senha é obrigatoria", type: "password-mandatory" })
   }
 
-  const user = await prisma.user.findUnique({ where: { email } })
+  const user:any = await prisma.user.findUnique({ where: { email } })
 
   if (!user){
     return res.status(422).json({ error:"O endereço de email cadastrado não existe na plataforma", type:"email-not-exist" })

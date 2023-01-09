@@ -33,7 +33,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext){
 
   const { id, power }  = contentToken 
 
-  const response = await axios.post(`http://localhost:3000/api/auth/getUserById`, { id:id })
+  const response = await axios.post(`${process.env.URL}/api/auth/getUserById`, { id:id })
   const user:User = await response.data
 
   return {
