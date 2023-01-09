@@ -14,7 +14,9 @@ export default async function getUserById(req: NextApiRequest, res: NextApiRespo
   if (!id){
     res.status(422).send({ error:"O id é obrigatorio", type: "id-mandatory" })
   }
+ 
 
+  
   const user = await prisma.user.findUnique({ 
     where: { id },
     select: {
