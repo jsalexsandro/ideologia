@@ -11,7 +11,8 @@ export type User = {
   name: string
   email: string
   username: string
-  level: number
+  level: string
+  bio:string
   avatarUrl: string
 }
 

@@ -24,6 +24,7 @@ export default async function getUserById(req: NextApiRequest, res: NextApiRespo
       level:true,
       username:true,
       name:true,
+      bio:true,
       avatarUrl:true
     }
   })
