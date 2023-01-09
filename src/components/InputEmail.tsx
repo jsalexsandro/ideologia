@@ -23,9 +23,10 @@ export function InputEmail(props: InputEmailProps){
   };
 
   return (
-    <FormControl className='sm:w-[450px] w-[320px]' variant="outlined">
-    <InputLabel htmlFor={ props.id } >{ props.placeholder }</InputLabel>
-    <OutlinedInput
+    <FormControl className='sm:w-[450px] w-[320px] border-zinc-600' variant="outlined">
+    <InputLabel className='max-sm:text-white' htmlFor={ props.id } >{ props.placeholder }</InputLabel>
+    <OutlinedInput 
+      className='max-sm:text-white'
       id={ props.id } 
       type="email"
       value={values.email}

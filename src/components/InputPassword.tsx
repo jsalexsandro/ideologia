@@ -47,8 +47,9 @@ export function InputPassword(props: InputPasswordProps) {
 
   return (
     <FormControl className='sm:w-[450px] w-[320px]' variant="outlined">
-      <InputLabel htmlFor={ props.id }>{ props.placeholder }</InputLabel>
+      <InputLabel className='max-sm:text-white'  htmlFor={ props.id }>{ props.placeholder }</InputLabel>
       <OutlinedInput
+        className='max-sm:text-white'
         id={ props.id }
         type={values.showPassword ? 'text' : 'password'}
         value={values.password}
@@ -62,7 +63,7 @@ export function InputPassword(props: InputPasswordProps) {
               onMouseDown={handleMouseDownPassword}
               edge="end"
             >
-              {values.showPassword ? <Eye /> : <EyeSlash />}
+              {values.showPassword ? <Eye className='max-sm:text-white' /> : <EyeSlash className='max-sm:text-white' />}
             </IconButton>
           </InputAdornment>
         }

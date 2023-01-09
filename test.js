@@ -1,13 +1,18 @@
-const axios = require("axios")
+const bcrypt = require('bcrypt')
+async function hashPassword(plaintextPassword) {
+  const hash = await bcrypt.hash(plaintextPassword, 10);
+  return hash
+}
+   
+async function comparePassword(plaintextPassword, hash) {
+  const result = await bcrypt.compare(plaintextPassword, hash);
+  return result;
+}
 
-const options = {
-  method: 'POST',
-  url: 'http://localhost:3000/api/auth/login',
-  data: {password: 'q', email: 'jose@gmail.com'}
-};
+async function a(){
+  const e = await hashPassword("admim")
+  console.log(e)
+  console.log(await comparePassword("admim", e))
+}
 
-axios.request(options).then(function (response) {
-  console.log(response.data);
-}).catch(function (error) {
-  console.error(error);
-});
+a()

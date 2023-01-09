@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@media not all and (min-width: 640px) {
+  fieldset.MuiOutlinedInput-notchedOutline:hover,
+  fieldset.MuiOutlinedInput-notchedOutline {
+    border-color: #d2d2d2;
+    border-width: 2px;
+  }
+  .MuiCheckbox-colorPrimary  {
+    border-color: #d2d2d2;
+    border-width: 2px;
+  }
+}
