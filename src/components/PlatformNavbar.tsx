@@ -88,4 +88,5 @@ export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
       </nav>
     </>
   )
+  
 }
