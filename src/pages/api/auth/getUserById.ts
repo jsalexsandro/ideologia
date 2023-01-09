@@ -20,7 +20,8 @@ export default async function getUserById(req: NextApiRequest, res: NextApiRespo
       email:true,
       level:true,
       username:true,
-      name:true
+      name:true,
+      avatarUrl:true
     }
   })
 

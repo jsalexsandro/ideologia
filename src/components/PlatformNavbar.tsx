@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { List, UserCircle, WhatsappLogo } from  "phosphor-react"
+import { ExitPlatform } from "../services/exitPlatform"
 
 type PlatformNavbarTYPE = {
-  name: string
+  name: string,
+  avatarUrl: string
 }
 
-export function PlatformNavbar({ name }: PlatformNavbarTYPE){
+export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
   const [open, setOpen] = useState(false)
 
   const firstName = name.split(' ')[0]
@@ -14,8 +16,10 @@ export function PlatformNavbar({ name }: PlatformNavbarTYPE){
     return (
       <div className="sm:hidden absolute top-20 right-4 shadow-[0_0_2px_rgb(161,161,170)] rounded-2xl p-2">
         <div className="flex items-center divide-x-2 rounded-full border px-2 min-w-[200px]">
-          <span className="w-12 h-12 outline-none flex items-center justify-cente pr-2">
+          <span className="w-12 h-12 justify-center outline-none flex items-center justify-cente pr-2">
             <UserCircle size={40} weight="fill" className="text-zinc-600"/>
+            { avatarUrl && <img className="rounded-full w-[40px]"  src={avatarUrl} />}
+
           </span>
           <p className="pl-2 text-zinc-600">
             Olá, { firstName }
@@ -35,7 +39,11 @@ export function PlatformNavbar({ name }: PlatformNavbarTYPE){
             <li  className="border-b py-2 border-zinc-200">
               <a>Historico</a>
             </li>
-            <li className="text-red-500 py-2">Sair</li>
+            <li className="text-red-500 py-2">
+              <button onClick={() => { ExitPlatform(null); location.reload() }}>
+                Sair
+              </button>
+            </li>
           </ul>
         </section>
       </div>
@@ -66,13 +74,14 @@ export function PlatformNavbar({ name }: PlatformNavbarTYPE){
           </ul>
         </div>
         <div className="sm:hidden right-0 absolute w-16 h-16 flex rounded-full items-center justify-center">
-          <button onClick={() => setOpen(!open)} className={`${open && "bg-zinc-50"} hover:shadow-[0_0_4px_rgb(161,161,170)] w-12 h-12 outline-none flex items-center justify-center rounded-full border border-zinc-200`}>
+          <button onClick={() => setOpen(!open)} className={`${open && "bg-zinc-50"} w-12 h-12 outline-none flex items-center justify-center rounded-full border border-zinc-200`}>
             <List size={32} className="text-zinc-600" />
           </button>
         </div>
         <div className="max-sm:hidden right-0 absolute w-16 flex items-center justify-center h-16">
           <button className="w-12 h-12 outline-none flex items-center justify-center rounded-full border border-zinc-400">
             <UserCircle size={40} weight="fill" className="text-zinc-600"/>
+            { avatarUrl && <img  className="rounded-full"  src={avatarUrl} /> }
           </button>
         </div>
         { open && <Modal /> }

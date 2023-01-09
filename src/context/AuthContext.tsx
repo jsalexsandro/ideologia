@@ -12,7 +12,7 @@ export type User = {
   email: string
   username: string
   level: number
-  
+  avatarUrl: string
 }
 
 type ResponseApiType = {
