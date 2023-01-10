@@ -25,7 +25,7 @@ export default async function getUserById(req: NextApiRequest, res: NextApiRespo
       name:true,
       bio:true,
       avatarUrl:true,
-      courses:true
+      // courses:true
     }
   })
 
