@@ -14,6 +14,7 @@ export type User = {
   level: string
   bio:string
   avatarUrl: string
+  courses: string
 }
 
 type ResponseApiType = {

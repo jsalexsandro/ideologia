@@ -16,7 +16,6 @@ export default async function getUserById(req: NextApiRequest, res: NextApiRespo
   }
  
 
-  
   const user = await prisma.user.findUnique({ 
     where: { id },
     select: {
@@ -25,7 +24,8 @@ export default async function getUserById(req: NextApiRequest, res: NextApiRespo
       username:true,
       name:true,
       bio:true,
-      avatarUrl:true
+      avatarUrl:true,
+      courses:true
     }
   })
 

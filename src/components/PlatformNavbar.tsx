@@ -4,12 +4,14 @@ import { ExitPlatform } from "../services/exitPlatform"
 
 type PlatformNavbarTYPE = {
   name: string,
+  power: string
   avatarUrl: string
 }
 
-export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
+export function PlatformNavbar({ name, avatarUrl, power }: PlatformNavbarTYPE){
   const [open, setOpen] = useState(false)
-
+  const [open2, setOpen2] = useState(false)
+  
   const firstName = name.split(' ')[0]
 
   function Modal(){
@@ -39,6 +41,9 @@ export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
             <li  className="border-b py-2 border-zinc-200">
               <a>Historico</a>
             </li>
+            { power == "director" && <li className="border-b py-2 border-zinc-200">
+              <a href="/platform/dashboard">Painel de Controle</a>
+            </li>}
             <li className="text-red-500 py-2">
               <button onClick={() => { ExitPlatform(null); location.reload() }}>
                 Sair
@@ -50,12 +55,27 @@ export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
     )
   }
 
+  function ModalDesktop(){
+    return (
+      <div className="max-sm:hidden absolute top-20 right-4 shadow-[0_0_2px_rgb(161,161,170)] rounded-xl p-2">
+        <ul className="flex divide-x text-zinc-600 items-center">
+          <li className="p-2 cursor-pointer">
+            Meu Perfil
+          </li>
+          <li className="text-red-600 p-2 cursor-pointer">
+            <button onClick={() => { ExitPlatform(null); location.reload() }}>Sair</button>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
   return (
     <>
       <nav className="bg-white w-full h-16 flex items-center border-b border-zinc-200">
         <div className="px-4 flex items-center">
           <img src="/icon.svg" className="w-8" />
-          <p className="pl-2 text-xl text-zinc-600 font-bold">Ideologia</p>
+          <p className="max-md:hidden max-sm:block pl-2 text-xl text-zinc-600 font-bold">Ideologia</p>
         </div>
         <div className="max-sm:hidden absolute h-16 top-0 left-1/2 translate-x-[-50%] flex items-center">
           <ul className="flex items-center cursor-pointer justify-center divide-x-2 px-4 py-2 shadow-sm rounded-full border border-zinc-200  text-zinc-600">
@@ -68,6 +88,9 @@ export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
             <li className="px-2">
               <a>Historico</a>
             </li>
+            { power == "director" && <li className="px-2">
+              <a href="/platform/dashboard">Painel</a>
+            </li>}
             <p  className="pl-2">
               <WhatsappLogo className="text-green-500" size={32} weight="fill" />
             </p>
@@ -79,12 +102,14 @@ export function PlatformNavbar({ name, avatarUrl }: PlatformNavbarTYPE){
           </button>
         </div>
         <div className="max-sm:hidden right-0 absolute w-16 flex items-center justify-center h-16">
-          <button className="w-12 h-12 outline-none flex items-center justify-center rounded-full border border-zinc-400">
+          <button onClick={ () => setOpen2(!open2) } className="w-12 h-12 outline-none flex items-center justify-center rounded-full border border-zinc-400">
             <UserCircle size={40} weight="fill" className="text-zinc-600"/>
-            { avatarUrl && <img  className="rounded-full"  src={avatarUrl} /> }
+            { avatarUrl && <img className="rounded-full"  src={avatarUrl} /> }
           </button>
         </div>
         { open && <Modal /> }
+        { open2 && <ModalDesktop /> }
+
       </nav>
     </>
   )

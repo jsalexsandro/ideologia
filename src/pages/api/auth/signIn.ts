@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import { PrismaClient, User } from "@prisma/client"
+import { PrismaClient } from "@prisma/client"
 import jwt from "jsonwebtoken"
 import { comparePassword } from "../../../services/password"
 

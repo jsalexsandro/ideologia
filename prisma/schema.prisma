@@ -8,14 +8,17 @@ datasource db {
   relationMode = "prisma"
 }
 
+
 model User {
   name      String
   username  String @unique
   id        String @unique @default(cuid())
   email     String @unique
-  type      String
-  bio       String 
-  level     String
+  type      String @default("student")
+  bio       String @default("")
+  level     String @default("1")
   password  String
-  avatarUrl String
+  avatarUrl String @default("")
+  courses   String @default("guitar")
+  
 }
